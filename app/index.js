@@ -5,7 +5,7 @@ var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
  
-var bannerGenerator = yeoman.generators.Base.extend({
+var bannerGenerator = yeoman.generators.Base.extend({   
     promptUser: function() {
         var done = this.async();
  
@@ -28,8 +28,8 @@ var bannerGenerator = yeoman.generators.Base.extend({
         },{
             type: 'confirm',
             name: 'minifyAssets',
-            message: 'Would you like me to make images folder web ready ?',
-            default: false
+            message: 'Optimize images ?',
+            default: true
         }];
  
         this.prompt(prompts, function (props) {
@@ -44,6 +44,8 @@ var bannerGenerator = yeoman.generators.Base.extend({
     },
     copyFiles: function() {
       this.copy("_manifest.json", "manifest.json");
+      this.copy("_gruntfile.js", "Gruntfile.js");
+      this.copy("_package.json", "package.json");
 
       var context = {
         banner_title: this.bannerTitle,
@@ -53,6 +55,19 @@ var bannerGenerator = yeoman.generators.Base.extend({
       };
 
       this.template("_manifest.json", "manifest.json", context);
+    },
+    install: function(){
+       /* var done = this.async();
+            this.npmInstall("", function(){
+            console.log("\nEverything Setup !!!\n");
+            done();
+    });
+    */
+         this.installDependencies({
+        //skipInstall: this.options['skip-install']
+        bower: false,
+        npm: true
+    });
     }
 });
  
