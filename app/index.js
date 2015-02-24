@@ -42,6 +42,9 @@ var bannerGenerator = yeoman.generators.Base.extend({
             done();
         }.bind(this));
     },
+/*    scaffoldFolders: function(){
+      this.mkdir("Leveret");
+    },*/
     copyFiles: function() {
       this.copy("_manifest.json", "manifest.json");
       this.copy("_gruntfile.js", "Gruntfile.js");
@@ -64,7 +67,6 @@ var bannerGenerator = yeoman.generators.Base.extend({
     });
     */
          this.installDependencies({
-        //skipInstall: this.options['skip-install']
         bower: false,
         npm: true
     });
