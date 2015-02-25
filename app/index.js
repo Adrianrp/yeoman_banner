@@ -58,6 +58,7 @@ var bannerGenerator = yeoman.generators.Base.extend({
       };
 
       this.template("_manifest.json", "manifest.json", context);
+      this.template("_gruntfile.js", "Gruntfile.js", context);
     },
     install: function(){
        /* var done = this.async();
