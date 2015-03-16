@@ -13,7 +13,7 @@
     },
 
     "clicktags": {
-        "clickTAG": "<%= url_address %>"
+        "clickTAG": "http://<%= url_address %>"
     },
 
     "source": "<%= banner_title %>.html"

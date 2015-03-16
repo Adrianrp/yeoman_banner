@@ -24,7 +24,7 @@ var bannerGenerator = yeoman.generators.Base.extend({
             message: 'What is the height of your banner ?'
         },{
             name: 'urlAddress',
-            message: 'Enter the URL of the banner'
+            message: 'Enter the URL of the banner, without http://'
         },{
             type: 'confirm',
             name: 'minifyAssets',
